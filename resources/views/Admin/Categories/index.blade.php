@@ -23,7 +23,7 @@
         <td class="px-4 py-3 text-sm"><a href="{{ route('categories.show', ['category' => $category->id]) }}">Details</a></td>
         <td class="px-4 py-3">
             <div class="flex items-center space-x-4 text-sm">
-                <a href="">Wijzigen</a>
+                <a href="{{ route('categories.edit', ['category' => $category->id]) }}">Wijzigen</a>
             </div>
         </td>
         <td class="px-4 py-3 text-sm">

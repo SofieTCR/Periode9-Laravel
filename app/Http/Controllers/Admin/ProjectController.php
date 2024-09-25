@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Http\Requests\ProjectUpdateRequest;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -53,15 +54,19 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view('admin.projects.edit', ['project' => $project]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Project $project)
+    public function update(ProjectUpdateRequest $request, Project $project)
     {
-        //
+        $project->name = $request->name;
+        $project->description = $request->description;
+        $project->save();
+
+        return to_route('projects.index')->with('status', "Project $project->name is gewijzigd");
     }
 
     /**

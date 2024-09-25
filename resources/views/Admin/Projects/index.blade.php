@@ -16,6 +16,11 @@
         </div>
     </nav>
 @endsection
+@if(session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
 <tbody class="bg-white divide-y">
 @foreach($projects as $project)
     <tr class="text-gray-700">
@@ -24,7 +29,7 @@
         <td class="px-4 py-3 text-sm"><a href="{{ route('projects.show', ['project' => $project->id]) }}">Details</a></td>
         <td class="px-4 py-3">
             <div class="flex items-center space-x-4 text-sm">
-                <a href="">Wijzigen</a>
+                <a href="{{ route('projects.edit', ['project' => $project->id]) }}">Wijzigen</a>
             </div>
         </td>
         <td class="px-4 py-3 text-sm">
