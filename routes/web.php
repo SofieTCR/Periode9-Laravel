@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\Admin\CategoryController;
+use App\http\Controllers\Admin\ProjectController;
 
 Route::get('/', function () {
     // return view('layouts.layoutadmin');
@@ -14,7 +15,7 @@ Route::get("/admin", function () {
 });
 
 Route::resource('/admin/categories', \App\Http\Controllers\Admin\CategoryController::class);
-Route::resource('/admin/projects', \App\Http\Controllers\Admin\CategoryController::class);
+Route::resource('/admin/projects', \App\Http\Controllers\Admin\ProjectController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
