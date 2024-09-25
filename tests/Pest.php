@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Tests\TestCase;
 
 /*
@@ -15,9 +14,7 @@ use Tests\TestCase;
 |
 */
 
-//uses(TestCase::class, RefreshDatabase::class)->in('Feature');
-uses(TestCase::class, DatabaseMigrations::class)->in('Feature', 'Unit');
-
+uses(TestCase::class, RefreshDatabase::class)->in('Feature');
 
 /*
 |--------------------------------------------------------------------------
