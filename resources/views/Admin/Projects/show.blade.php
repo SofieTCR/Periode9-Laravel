@@ -16,22 +16,22 @@
         </div>
     </nav>
 @endsection
-<tbody class="bg-white divide-y">
-@foreach($projects as $project)
-    <tr class="text-gray-700">
-        <td class="px-4 py-3 text-sm">{{ $project->id }}</td>
-        <td class="px-4 py-3 text-sm">{{ $project->name }}</td>
-        <td class="px-4 py-3 text-sm"><a href="{{ route('projects.show', ['project' => $project->id]) }}">Details</a></td>
-        <td class="px-4 py-3">
-            <div class="flex items-center space-x-4 text-sm">
-                <a href="">Wijzigen</a>
+
+@section('content')
+    <div class="card mt-6">
+        <!-- header -->
+         <div class="card-header flex flex-row justify-between">
+            <h1 class="h6">Project Project</h1>
+         </div>
+        <!-- end header -->
+
+        
+        <div class="py-4 px-6">
+            <h2 class="text-lg font-semibold text-gray-800">Project Details</h2>
+            <p class="py-2 text-lg text-gray-700">Id: {{ $project->id }}</p>
+            <p class="py-2 text-lg text-gray-700">Naam: {{ $project->name }}</p>
+            <p class="py-2 text-lg text-gray-700">Description: {{ $project->description }}</p>
+            <p class="py-2 text-lg text-gray-700">Created_at: {{ $project->created_at }}</p>
             </div>
-        </td>
-        <td class="px-4 py-3 text-sm">
-            <div class="flex items-center space-x-4 text-sm">
-                <a href="">Verwijderen</a>
-            </div>
-        </td>
-    </tr>
-@endforeach
-</tbody>
+    </div>
+@endsection

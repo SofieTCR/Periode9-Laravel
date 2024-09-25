@@ -16,21 +16,19 @@
         </div>
     </nav>
 @endsection
-<tbody class="bg-white divide-y">
-@foreach($categories as $category)
-    <tr class="text-gray-700">
-        <td class="px-4 py-3 text-sm">{{ $category->name }}</td>
-        <td class="px-4 py-3 text-sm"><a href="{{ route('categories.show', ['category' => $category->id]) }}">Details</a></td>
-        <td class="px-4 py-3">
-            <div class="flex items-center space-x-4 text-sm">
-                <a href="">Wijzigen</a>
-            </div>
-        </td>
-        <td class="px-4 py-3 text-sm">
-            <div class="flex items-center space-x-4 text-sm">
-                <a href="">Verwijderen</a>
-            </div>
-        </td>
-    </tr>
-@endforeach
-</tbody>
+
+@section('content')
+    <div class="card mt-6">
+        <!-- header -->
+         <div class="card-header flex flex-row justify-between">
+            <h1 class="h6">Categorie Admin</h1>
+         </div>
+        <!-- end header -->
+
+        
+        <div class="py-4 px-6">
+            <h2 class="text-lg font-semibold text-gray-800">Categorie Details</h2>
+            <p class="py-2 text-lg text-gray-700">Naam: {{ $category->name }}</p>
+        </div>
+    </div>
+@endsection
