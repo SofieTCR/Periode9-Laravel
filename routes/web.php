@@ -14,7 +14,9 @@ Route::get("/admin", function () {
     return view('layouts.layoutadmin');
 });
 
+Route::get('/admin/categories/{category}/delete', [CategoryController::class, 'delete'])->name('categories.delete');
 Route::resource('/admin/categories', \App\Http\Controllers\Admin\CategoryController::class);
+Route::get('/admin/projects/{project}/delete', [ProjectController::class, 'delete'])->name('projects.delete');
 Route::resource('/admin/projects', \App\Http\Controllers\Admin\ProjectController::class);
 
 Route::get('/dashboard', function () {

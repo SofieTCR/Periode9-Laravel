@@ -34,7 +34,7 @@
         </td>
         <td class="px-4 py-3 text-sm">
             <div class="flex items-center space-x-4 text-sm">
-                <a href="">Verwijderen</a>
+                <a href="{{ route('projects.delete', ['project' => $project->id]) }}">Verwijderen</a>
             </div>
         </td>
     </tr>

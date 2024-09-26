@@ -28,7 +28,7 @@
         </td>
         <td class="px-4 py-3 text-sm">
             <div class="flex items-center space-x-4 text-sm">
-                <a href="">Verwijderen</a>
+                <a href="{{ route('categories.delete', ['category' => $category->id]) }}">Verwijderen</a>
             </div>
         </td>
     </tr>

@@ -67,11 +67,17 @@ class CategoryController extends Controller
         return to_route('categories.index');
     }
 
+    public function delete(Category $category)
+    {
+        return view('admin.categories.delete', ['category' => $category]);
+    }
+
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return to_route('categories.index');
     }
 }
