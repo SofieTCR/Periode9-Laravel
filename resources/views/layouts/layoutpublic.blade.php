@@ -20,7 +20,15 @@
 					TCR Webshop
 				</a>
 				<div class="w-full md:w-auto mb-6 md:mb-0 text-center md:text-right">
-					<a href="#" class="inline-block no-underline bg-black text-white text-sm py-2 px-3">Login / Regsiter</a>
+					@guest
+						@if(Route::has('register'))
+							<a href="{{ route('register') }}" class="inline-block no-underline bg-black text-white text-sm py-2 px-3">Sign Up</a>
+						@endif
+						<a href="{{ route('login') }}" class="inline-block no-underline bg-black text-white text-sm py-2 px-3">Login</a>
+					@else
+						<a onclick="document.getElementById('logout-form').submit();" class="inline-block no-underline bg-black text-white text-sm py-2 px-3">Logout</a>
+						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">@csrf</form>
+					@endguest
 				</div>
 			</div>
 		</header>
@@ -30,9 +38,9 @@
 		<nav class="w-full bg-white md:pt-0 px-6 relative z-20 border-t border-b border-gray-300">
 			<div class="container mx-auto max-w-4xl md:flex justify-between items-center text-sm md:text-md md:justify-start">
 				<div class="w-full md:w-1/2 text-center md:text-left py-4 flex flex-wrap justify-center items-stretch md:justify-start md:items-start">
-					<a href="#" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-300">Home</a>
-					<a href="#" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-300">Products</a>
-					<a href="#" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-300">About Us</a>
+					<a href="{{ route('home') }}" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-300">Home</a>
+					<a href="{{ route('categories.index') }}" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-300">Categories</a>
+					<a href="{{ route('projects.index') }}" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-300">Projects</a>
 					<a href="#" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline md:border-r border-gray-300">News</a>
 					<a href="#" class="px-2 md:pl-0 md:mr-3 md:pr-3 text-gray-700 no-underline">Contact</a>
 				</div>
